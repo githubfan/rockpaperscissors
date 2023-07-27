@@ -12,15 +12,14 @@ def prPurple(skk):
 # Print necessary information
 prPurple("Welcome to rock paper scissors! For rock, type r, for paper, type p, and for scissors, type s. Best of 3, and goodluck!")
 
-# Setup variables + computer's response
+# Setup variables
 computer_score = 0
 user_score = 0
-options = ["r", "p", "s"]
-response = random.choice(options)
+
 
 # bulk of code
 def game():
-
+    global options
     # scoring system
     def scores():
         global computer_score
@@ -37,9 +36,15 @@ def game():
     # input validation
 
     def checker():
+        # make scores global values
         global computer_score
         global user_score
-        global response
+
+        # setup computer response
+        options = ["r", "p", "s"]
+        response = random.choice(options)
+
+        # checker logic
         if response == user_input:
             prPurple("Reroll!")
             game()
